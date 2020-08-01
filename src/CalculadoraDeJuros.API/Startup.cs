@@ -26,6 +26,10 @@ namespace CalculadoraDeJuros.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddApplicationServices();
+
+            services.AddHttpClient("TaxasAPI", client =>
+                client.BaseAddress = new Uri(Configuration["EndpointTaxasApi"]));
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
