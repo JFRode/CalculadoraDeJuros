@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Http" Version="3.1.6" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="Polly" Version="7.2.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CalculadoraDeJuros.Domain\CalculadoraDeJuros.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="SDK">
+      <HintPath>..\..\..\SDK\SDK\bin\Debug\netcoreapp3.1\SDK.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>
