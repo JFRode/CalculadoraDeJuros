@@ -1,0 +1,131 @@
+{
+	"info": {
+		"_postman_id": "f831e2f5-48bc-4f8b-ab3c-5770045a490e",
+		"name": "Calculadora de Juros",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Taxas Token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\"9eaa8580-cdda-4354-bdae-9e5a1be59e0b\"",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44344/token",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44344",
+					"path": [
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Taxas GET",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3NlcmlhbG51bWJlciI6IjllYWE4NTgwLWNkZGEtNDM1NC1iZGFlLTllNWExYmU1OWUwYiIsImV4cCI6MTU5NjM4MjAwMiwiaXNzIjoiVGF4YXNBUEkiLCJhdWQiOiJUYXhhc0FQSSJ9.o51oxFsT5dDFWfZxoowmlAjdL8nR-T93MDXOj8Z7swM"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://localhost:44344/taxaJuros",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44344",
+					"path": [
+						"taxaJuros"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Calculadora ShowMeTheCode",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44308/showMeTheCode",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44308",
+					"path": [
+						"showMeTheCode"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Calculadora Calculo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44308/CalculadoraDeJuros/100&5",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44308",
+					"path": [
+						"CalculadoraDeJuros",
+						"100&5"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "339dd37e-d642-4756-b4e1-fcec0b45f68d",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "b8414cb9-0811-40d6-85a4-c1f2e8ceb670",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
