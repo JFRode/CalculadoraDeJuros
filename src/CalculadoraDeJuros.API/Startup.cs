@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
 using Polly;
 using Polly.Extensions.Http;
 using System;
@@ -29,6 +30,8 @@ namespace CalculadoraDeJuros.API
             services.AddHttpClient("TaxasAPI", client =>
                 client.BaseAddress = new Uri(Configuration["EndpointTaxasApi"]))
                 .AddPolicyHandler(GetRetryPolicy());
+
+            ConfigureSwaggerService(services);
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -44,9 +47,40 @@ namespace CalculadoraDeJuros.API
 
             app.UseAuthorization();
 
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "CalculadoraDeJuros.API v1");
+            });
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+            });
+        }
+
+        private void ConfigureSwaggerService(IServiceCollection services)
+        {
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Title = "CalculadoraDeJuros.API",
+                    Version = "v1",
+                    Description = "API de cálculo de juros",
+                    TermsOfService = new Uri("https://github.com/JFRode/CalculadoraDeJuros/blob/master/LICENSE"),
+                    Contact = new OpenApiContact
+                    {
+                        Name = "João Felipe Gonçalves",
+                        Email = "joaofelipe.rode@gmail.com",
+                        Url = new Uri("https://github.com/JFRode"),
+                    },
+                    License = new OpenApiLicense
+                    {
+                        Name = "Use under MIT",
+                        Url = new Uri("https://github.com/JFRode/CalculadoraDeJuros/blob/master/LICENSE"),
+                    }
+                });
             });
         }
 
