@@ -10,17 +10,12 @@ namespace CalculadoraDeJuros.Application.Services
         private const string LinkParaRepositorioDaApiCalculadora = "https://github.com/JFRode/CalculadoraDeJuros";
         private const string LinkParaRepositorioSdk = "https://github.com/JFRode/SDK";
 
-        public async Task<string> GetHyperlinks(CancellationToken cancellationToken)
-        {
-            var links = await Task.Run(() => MontarStringComHyperlinks(), cancellationToken);
-            return links;
-        }
+        public async Task<string> GetHyperlinks(CancellationToken cancellationToken) =>
+            await Task.Run(() => MontarStringComHyperlinks(), cancellationToken);
 
-        private string MontarStringComHyperlinks()
-        {
-            return $"API Taxas: {LinkParaRepositorioDaApiTaxas}\n" +
-                   $"API CalculadoraDeJuros: {LinkParaRepositorioDaApiCalculadora}\n" +
-                   $"SDK: {LinkParaRepositorioSdk}";
-        }
+        private string MontarStringComHyperlinks() =>
+            $"API Taxas: {LinkParaRepositorioDaApiTaxas}\n" +
+            $"API CalculadoraDeJuros: {LinkParaRepositorioDaApiCalculadora}\n" +
+            $"SDK: {LinkParaRepositorioSdk}";
     }
 }

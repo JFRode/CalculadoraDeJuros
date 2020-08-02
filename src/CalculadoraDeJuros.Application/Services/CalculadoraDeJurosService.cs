@@ -9,10 +9,8 @@ namespace CalculadoraDeJuros.Application.Services
     {
         private readonly ITaxasClient _taxasClient;
 
-        public CalculadoraDeJurosService(ITaxasClient taxasClient)
-        {
+        public CalculadoraDeJurosService(ITaxasClient taxasClient) =>
             _taxasClient = taxasClient;
-        }
 
         public async Task<decimal> Calcular(decimal valorInicial, int tempo, CancellationToken cancellationToken)
         {

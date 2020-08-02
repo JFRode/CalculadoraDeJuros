@@ -59,8 +59,7 @@ namespace CalculadoraDeJuros.API
             });
         }
 
-        private void ConfigureSwaggerService(IServiceCollection services)
-        {
+        private void ConfigureSwaggerService(IServiceCollection services) =>
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo
@@ -82,7 +81,6 @@ namespace CalculadoraDeJuros.API
                     }
                 });
             });
-        }
 
         private static IAsyncPolicy<HttpResponseMessage> GetRetryPolicy() =>
             HttpPolicyExtensions

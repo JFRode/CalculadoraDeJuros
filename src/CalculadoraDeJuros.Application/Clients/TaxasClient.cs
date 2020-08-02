@@ -16,12 +16,10 @@ namespace CalculadoraDeJuros.Application.Clients
     public class TaxasClient : ITaxasClient
     {
         private readonly IHttpClientFactory _httpClientFactory;
-        private static string AuthenticationToken = "";
+        private static string _authenticationToken = "";
 
-        public TaxasClient(IHttpClientFactory httpClientFactory)
-        {
+        public TaxasClient(IHttpClientFactory httpClientFactory) =>
             _httpClientFactory = httpClientFactory;
-        }
 
         public async Task<TaxaDeJurosDto> GetTaxaDeJuros()
         {
@@ -31,11 +29,11 @@ namespace CalculadoraDeJuros.Application.Clients
             var response = await policy.ExecuteAsync(context =>
             {
                 var client = _httpClientFactory.CreateClient("TaxasAPI");
-                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", AuthenticationToken);
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _authenticationToken);
                 return client.GetAsync("taxaJuros");
             }, new Dictionary<string, object>
             {
-                {"access_token", AuthenticationToken}
+                {"access_token", _authenticationToken}
             });
 
             string apiResponse = await response.Content.ReadAsStringAsync();
@@ -63,13 +61,12 @@ namespace CalculadoraDeJuros.Application.Clients
         public async Task<string> RefreshAuthenticationToken()
         {
             var token = await GetAuthenticationToken();
-            AuthenticationToken = token;
+            _authenticationToken = token;
             return token;
         }
 
-        private IAsyncPolicy<HttpResponseMessage> CreateTokenRefreshPolicy()
-        {
-            var policy = Policy
+        private IAsyncPolicy<HttpResponseMessage> CreateTokenRefreshPolicy() =>
+            Policy
                 .HandleResult<HttpResponseMessage>(message => message.StatusCode == HttpStatusCode.Unauthorized)
                 .RetryAsync(1, async (result, retryCount, context) =>
                 {
@@ -80,8 +77,5 @@ namespace CalculadoraDeJuros.Application.Clients
                             context["access_token"] = newAccessToken;
                     }
                 });
-
-            return policy;
-        }
     }
 }
