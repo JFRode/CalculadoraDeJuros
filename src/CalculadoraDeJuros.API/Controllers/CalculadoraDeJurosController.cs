@@ -7,15 +7,19 @@ using System.Threading.Tasks;
 namespace CalculadoraDeJuros.API.Controllers
 {
     [Route("[controller]")]
-    public class CalculadoraDeJurosController : Controller
+    public class CalculadoraDeJurosController : ControllerBase
     {
         private readonly ICalculadoraDeJurosService _calculadoraDeJurosService;
 
-        public CalculadoraDeJurosController(ICalculadoraDeJurosService calculadoraDeJurosService)
-        {
+        public CalculadoraDeJurosController(ICalculadoraDeJurosService calculadoraDeJurosService) =>
             _calculadoraDeJurosService = calculadoraDeJurosService;
-        }
 
+        /// <summary>
+        /// Calcula juros através do valor e tempo.
+        /// </summary>
+        /// <param name="valorInicial"></param>
+        /// <param name="tempo"></param>
+        /// <param name="cancellationToken"></param>
         [HttpGet("{valorInicial}&{tempo}")]
         public async Task<IActionResult> GetAsync(decimal valorInicial, int tempo, CancellationToken cancellationToken)
         {
