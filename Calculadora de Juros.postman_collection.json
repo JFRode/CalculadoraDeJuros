@@ -44,7 +44,7 @@
 					{
 						"key": "Authorization",
 						"type": "text",
-						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3NlcmlhbG51bWJlciI6IjllYWE4NTgwLWNkZGEtNDM1NC1iZGFlLTllNWExYmU1OWUwYiIsImV4cCI6MTU5NjM4MjAwMiwiaXNzIjoiVGF4YXNBUEkiLCJhdWQiOiJUYXhhc0FQSSJ9.o51oxFsT5dDFWfZxoowmlAjdL8nR-T93MDXOj8Z7swM"
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3NlcmlhbG51bWJlciI6IjllYWE4NTgwLWNkZGEtNDM1NC1iZGFlLTllNWExYmU1OWUwYiIsImV4cCI6MTU5NjQxNDA5NSwiaXNzIjoiVGF4YXNBUEkiLCJhdWQiOiJUYXhhc0FQSSJ9.cfnse6bUve7bqfkHMgljo9P-5UPfIv96x2axlmFOLBY"
 					}
 				],
 				"body": {
@@ -71,12 +71,12 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://localhost:44308/showMeTheCode",
+					"raw": "https://localhost:80/showMeTheCode",
 					"protocol": "https",
 					"host": [
 						"localhost"
 					],
-					"port": "44308",
+					"port": "80",
 					"path": [
 						"showMeTheCode"
 					]
@@ -96,6 +96,117 @@
 						"localhost"
 					],
 					"port": "44308",
+					"path": [
+						"CalculadoraDeJuros",
+						"100&5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Docker Taxas Token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\"9eaa8580-cdda-4354-bdae-9e5a1be59e0b\"",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://0.0.0.0:5001/token",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "5001",
+					"path": [
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Docker Taxas GET",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3NlcmlhbG51bWJlciI6IjllYWE4NTgwLWNkZGEtNDM1NC1iZGFlLTllNWExYmU1OWUwYiIsImV4cCI6MTU5NjQ4MDAxNiwiaXNzIjoiVGF4YXNBUEkiLCJhdWQiOiJUYXhhc0FQSSJ9.xLM3az1Inh7AWPhOqj8EHstSDs9Uh-30qGr6Piw0tMQ"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://0.0.0.0:5001/taxaJuros",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "5001",
+					"path": [
+						"taxaJuros"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Docker Calculadora ShowMeTheCode",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://0.0.0.0:5000/showMeTheCode",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "5000",
+					"path": [
+						"showMeTheCode"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Docker Calculadora Calculo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://0.0.0.0:5000/CalculadoraDeJuros/100&5",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "5000",
 					"path": [
 						"CalculadoraDeJuros",
 						"100&5"
