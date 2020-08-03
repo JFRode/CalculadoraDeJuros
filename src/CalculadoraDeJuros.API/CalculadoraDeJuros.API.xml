@@ -4,5 +4,19 @@
         <name>CalculadoraDeJuros.API</name>
     </assembly>
     <members>
+        <member name="M:CalculadoraDeJuros.API.Controllers.CalculadoraDeJurosController.GetAsync(System.Decimal,System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Calcula juros através do valor e tempo.
+            </summary>
+            <param name="valorInicial"></param>
+            <param name="tempo"></param>
+            <param name="cancellationToken"></param>
+        </member>
+        <member name="M:CalculadoraDeJuros.API.Controllers.ShowMeTheCodeController.GetAsync(System.Threading.CancellationToken)">
+            <summary>
+            Retorna links dos repositórios do projeto.
+            </summary>
+            <param name="cancellationToken"></param>
+        </member>
     </members>
 </doc>
