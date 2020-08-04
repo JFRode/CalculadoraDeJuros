@@ -1,6 +1,6 @@
 # CalculadoraDeJuros
 
-### Endpoints
+### Rotas
 - /showMeTheCode
 - /CalculadoraDeJuros/100&5
 - /swagger
