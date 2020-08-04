@@ -1,4 +1,4 @@
-version: "3"
+version: "3.7"
 
 services:
   calculadoradejuros:
@@ -13,9 +13,22 @@ services:
       - "taxas"
 
   taxas:
-    image: taxas:1.0
+    image: taxas:1.1
     ports:
       - "5001:80"
+    networks:
+      - taxas-network
+    depends_on:
+      - "sqldatabase"
+
+  sqldatabase:
+    container_name: sqldatabase
+    image: mcr.microsoft.com/mssql/server:2017-latest
+    ports:
+      - 1433:1433
+    environment:
+      SA_PASSWORD: "SQLTaxas123"
+      ACCEPT_EULA: "Y"
     networks:
       - taxas-network
 
