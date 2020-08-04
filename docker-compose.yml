@@ -2,7 +2,7 @@ version: "3.7"
 
 services:
   calculadoradejuros:
-    image: calculadoradejuros:1.2
+    image: joaofelipegoncalves/calculadoradejuros:1.0
     build:
       context: .
     ports:
@@ -13,7 +13,7 @@ services:
       - "taxas"
 
   taxas:
-    image: taxas:1.1
+    image: joaofelipegoncalves/taxas:1.0
     ports:
       - "5001:80"
     networks:
